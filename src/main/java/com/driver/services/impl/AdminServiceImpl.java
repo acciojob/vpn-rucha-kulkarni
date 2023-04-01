@@ -56,23 +56,23 @@ public class AdminServiceImpl implements AdminService {
 
             if(countryName.equalsIgnoreCase("ind")){
                 country.setCountryName(CountryName.IND);
-                country.setCodes(CountryName.IND.toCode());
+                country.setCode(CountryName.IND.toCode());
             }
             else if(countryName.equalsIgnoreCase("usa")){
                 country.setCountryName(CountryName.USA);
-                country.setCodes(CountryName.USA.toCode());
+                country.setCode(CountryName.USA.toCode());
             }
             else if(countryName.equalsIgnoreCase("aus")){
                 country.setCountryName(CountryName.AUS);
-                country.setCodes(CountryName.AUS.toCode());
+                country.setCode(CountryName.AUS.toCode());
             }
             else if(countryName.equalsIgnoreCase("chi")){
                 country.setCountryName(CountryName.CHI);
-                country.setCodes(CountryName.CHI.toCode());
+                country.setCode(CountryName.CHI.toCode());
             }
             else if(countryName.equalsIgnoreCase("jpn")){
                 country.setCountryName(CountryName.JPN);
-                country.setCodes(CountryName.JPN.toCode());
+                country.setCode(CountryName.JPN.toCode());
             }
 
             country.setServiceProvider(serviceProvider);

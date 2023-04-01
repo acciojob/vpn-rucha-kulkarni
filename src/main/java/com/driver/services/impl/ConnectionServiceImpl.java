@@ -25,7 +25,7 @@ public class ConnectionServiceImpl implements ConnectionService {
         User user = userRepository2.findById(userId).get();
         if(user.getMaskedIp() != null){
             throw new Exception("Already connected");
-        }else if(countryName.equalsIgnoreCase(user.getCountry().getCountryName().toString())){
+        }else if(countryName.equalsIgnoreCase(user.getOriginalCountry().getCountryName().toString())){
             return user;
         }else{
             if (user.getServiceProviderList() == null) {
@@ -54,7 +54,7 @@ public class ConnectionServiceImpl implements ConnectionService {
                 connection.setUser(user);
                 connection.setServiceProvider(serviceProvider);
 
-                String s = country.getCodes();
+                String s = country.getCode();
                 int SpId = serviceProvider.getId();
                 // maskedIp  --  "updatedCountryCode.serviceProviderId.userId"
                 String mask = s + "." + SpId + "." + userId;
@@ -98,7 +98,7 @@ public class ConnectionServiceImpl implements ConnectionService {
             // maskedIp  --  "updatedCountryCode.serviceProviderId.userId"
             String s = str.substring(0,3);
 
-            if (s.equals(sender.getCountry().getCodes())){
+            if (s.equals(sender.getOriginalCountry().getCode())){
                 return sender;
             }
             else {
@@ -125,10 +125,10 @@ public class ConnectionServiceImpl implements ConnectionService {
 
         }
         else{
-            if(receiver.getCountry().equals(sender.getCountry())){
+            if(receiver.getOriginalCountry().equals(sender.getOriginalCountry())){
                 return sender;
             }
-            String countryName = receiver.getCountry().getCountryName().toString();
+            String countryName = receiver.getOriginalCountry().getCountryName().toString();
             User updatedSender1 = connect(senderId,countryName);
             if (!updatedSender1.getConnected()){
                 throw new Exception("Cannot establish communication");

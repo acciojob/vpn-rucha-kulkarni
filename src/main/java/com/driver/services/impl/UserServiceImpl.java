@@ -38,34 +38,34 @@ public class UserServiceImpl implements UserService {
 
             if(countryName.equalsIgnoreCase("ind")){
                 country.setCountryName(CountryName.IND);
-                country.setCodes(CountryName.IND.toCode());
+                country.setCode(CountryName.IND.toCode());
             }
 
             if(countryName.equalsIgnoreCase("aus")){
                 country.setCountryName(CountryName.AUS);
-                country.setCodes(CountryName.AUS.toCode());
+                country.setCode(CountryName.AUS.toCode());
             }
 
             if(countryName.equalsIgnoreCase("usa")){
                 country.setCountryName(CountryName.USA);
-                country.setCodes(CountryName.USA.toCode());
+                country.setCode(CountryName.USA.toCode());
             }
 
             if(countryName.equalsIgnoreCase("chi")){
                 country.setCountryName(CountryName.CHI);
-                country.setCodes(CountryName.CHI.toCode());
+                country.setCode(CountryName.CHI.toCode());
             }
 
             if(countryName.equalsIgnoreCase("jpn")){
                 country.setCountryName(CountryName.JPN);
-                country.setCodes(CountryName.JPN.toCode());
+                country.setCode(CountryName.JPN.toCode());
             }
 
             user.setConnected(false);
-            user.setCountry(country);
+            user.setOriginalCountry(country);
             country.setUser(user);
 
-            String Code = country.getCodes()+"."+ user.getId();
+            String Code = country.getCode()+"."+ user.getId();
             user.setOriginalIp(Code);
 
             userRepository3.save(user);
