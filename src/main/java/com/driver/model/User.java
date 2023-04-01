@@ -120,4 +120,7 @@ public class User {
     public void setServiceProviders(List<ServiceProvider> serviceProviders) {
         this.serviceProviderList = serviceProviderList;
     }
+    public void setServiceProviderList(List<ServiceProvider> serviceProviderList) {
+        this.serviceProviderList = serviceProviderList;
+    }
 }
